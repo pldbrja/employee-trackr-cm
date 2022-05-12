@@ -8,8 +8,6 @@
 
 TBA
 
-In the event of a MySQL root account using a password, the user will be required to go into the code.
-
 ## Tools
 
 * MySQL
