@@ -1,6 +1,9 @@
 const mysql = require('mysql2');
 const conTable = require('console.table');
 const inquirer = require('inquirer');
+const view = require('./utils/views');
+//const add = require('./utils/add');
+//const edit = require('./utils/edit');
 
 
 // const db = mysql.createConnection(
@@ -22,31 +25,33 @@ function init() {
         }
     ];
 
-    function view(category) {
-        const selection = category.split(' ').pop();
-
-        console.info(selection);
-
-    //     if (selection === 'Employees') {
-    //         console.log('')
-    //     } else if (selection === 'Roles') {
-
-    //     } else if (selection === 'Departments') {
-
-    //     } else {
-    //         console.info("Sorry that's not a selection")
-    //     }
-    }
-
     inquirer
         .prompt(
             indexQuestions
         )
         .then((answers) => {
-            if (answers.index === 'View All Employees' || 'View All Roles' || 'View All Departments') {
-                view(answers.index)
-            } else if (answers.index === 'Add Employee' || 'Add Role' || 'Add Department') {
-                IDK
+
+            switch(answers.index) {
+                case "View All Employees":
+                case "View All Roles":
+                case "View All Departments":
+                    view(answers.index);
+                    break;
+
+                case "Add Employee":
+                case "Add Role":
+                case "Add Department":
+                    console.log(answers.index);
+                    break;
+
+                case "Update Employee Role":
+                    console.log(answers.index);
+                    break;
+
+                case "Quit":
+                    console.log(answers.index);
+                    console.log('Goodbye.')
+                    break;
             }
         })
 
