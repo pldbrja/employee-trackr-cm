@@ -1,3 +1,10 @@
+const inquirer = require('inquirer');
+const db = require('./connection');
+const mysql = require('mysql2');
 
 
-//module.exports = ;
+function edit(category) {
+    console.log("Edit?")
+}
+
+module.exports = edit;

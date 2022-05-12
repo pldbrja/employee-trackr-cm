@@ -15,5 +15,6 @@ TBA
 * Inquirer.js
 * console.table
 * MySQL2
+* dotenv
 
 ## Documentation

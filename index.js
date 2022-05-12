@@ -2,18 +2,9 @@ const mysql = require('mysql2');
 const conTable = require('console.table');
 const inquirer = require('inquirer');
 const view = require('./utils/views');
-//const add = require('./utils/add');
-//const edit = require('./utils/edit');
-
-
-// const db = mysql.createConnection(
-//     {
-//       host: 'localhost',
-//       user: 'root',
-//       database: 'company_db'
-//     },
-//     console.log(`Connected to the Employee Database, welcome.`)
-// );
+const add = require('./utils/add');
+const edit = require('./utils/edit');
+const db = require('./utils/connection')
 
 function init() {
     const indexQuestions = [
@@ -36,16 +27,21 @@ function init() {
                 case "View All Roles":
                 case "View All Departments":
                     view(answers.index);
+                    init();
                     break;
 
                 case "Add Employee":
                 case "Add Role":
                 case "Add Department":
                     console.log(answers.index);
+                    add(answers.index);
+                    init();
                     break;
 
                 case "Update Employee Role":
                     console.log(answers.index);
+                    edit(answers.index);
+                    init();
                     break;
 
                 case "Quit":
