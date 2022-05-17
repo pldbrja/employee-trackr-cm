@@ -6,16 +6,21 @@ const db = require('./connection');
 function view(category) {
     const selection = category.split(' ').pop();
 
-    console.info(selection);
-
     if (selection === 'Employees') {
-        db.query('SELECT * FROM role', function (err,result) {
-            console.log(result)
+        db.query('SELECT employee.first_name, employee.last_name, role.title AS role, role.salary FROM role JOIN employee ON employee.role_id = role.id GROUP BY employee.id, employee.first_name;', function (err,result) {
+            console.log(" ")
+            console.table(result)
         })
     } else if (selection === 'Roles') {
-        console.log('You have selected Roles')
+        db.query('SELECT role.title AS role, department.name AS department, role.salary FROM department JOIN role ON role.department_id = department.id GROUP BY role.id, role.title;', function (err,result) {
+            console.log(" ")
+            console.table( result)
+        })
     } else {
-        console.log('You have selected Departments')
+        db.query('SELECT * FROM department', function (err,result) {
+            console.log(" ")
+            console.table(result)
+        })
     }
 }
 

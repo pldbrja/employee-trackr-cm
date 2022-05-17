@@ -27,36 +27,25 @@ function init() {
                 case "View All Roles":
                 case "View All Departments":
                     view(answers.index);
-                    init();
                     break;
 
                 case "Add Employee":
                 case "Add Role":
                 case "Add Department":
-                    console.log(answers.index);
                     add(answers.index);
-                    init();
                     break;
 
                 case "Update Employee Role":
-                    console.log(answers.index);
                     edit(answers.index);
-                    init();
                     break;
 
                 case "Quit":
-                    console.log(answers.index);
                     console.log('Goodbye.')
                     break;
             }
         })
-
-
-    // Copy and paste for the inquirer prompts so less typing.
-    //{
-    //    type: '',
-    //    message: '',
-    //    na
 }
 
 init();
+
+module.exports = init;
