@@ -12,6 +12,8 @@ Using Inquirer, there are the main options of Viewing, Adding, and Editing the c
 
 Due to issues with the code, hitting CTRL + C, or the general exit command on the user's computer, is the only way to exit the broken loop function that will be fixed in the future.
 
+The edit feature is currently bugged, and although sending a positive result, it will not update the employee's role.
+
 ## How to Run
 
 ```
@@ -28,3 +30,5 @@ node index.js
 * dotenv
 
 ## Documentation
+
+[Video Demonstration](https://www.youtube.com/watch?v=PABCgtfA3-M)

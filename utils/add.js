@@ -29,14 +29,8 @@ function add(category) {
             const sql = `INSERT INTO employee (first_name, last_name, role_id) VALUES (?, ?, ?)`
             const params = [answers.first_name, answers.last_name, answers.role_name];
 
-            console.log('Your employee has been added.')
-
             db.query(sql, params, function (err,result) {
-                 console.log(result)
-
-                 if (err) {
-                     console.log(err);
-                 }
+                console.log('Your employee has been added.')
             })
         })
     } else if (selection === 'Role') {
@@ -51,16 +45,19 @@ function add(category) {
                 type: 'input',
                 message: "What is the new role's department?",
                 name: 'role_department',
+            },
+            {
+                type: 'input',
+                message: "What is the new role's salary?",
+                name: 'salary',
             }
         ])
         .then ((answers) => {
-            const sql = `INSERT INTO role (title, department_id) VALUES (?, ?)`
-            const params = [answers.title, answers.role_department];
-
-            console.log('Your role has been added.')
+            const sql = `INSERT INTO role (title, department_id, salary) VALUES (?, ?, ?)`
+            const params = [answers.title, answers.role_department, answers.salary];
 
             db.query(sql, params, function (err,result) {
-                 console.log(result)
+                console.log('Your role has been added.')
             })
         })
     } else {
@@ -76,10 +73,8 @@ function add(category) {
             const sql = `INSERT INTO department (name) VALUES (?)`
             const params = answers.name;
 
-            console.log('Your department has been added.')
-
             db.query(sql, params, function (err,result) {
-                 console.log(result)
+                console.log('Your department has been added.')
             })
         })
     }

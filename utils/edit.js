@@ -22,10 +22,8 @@ function edit(category) {
             const sql = `UPDATE employee SET role_id = (?) WHERE first_name = (?)`
             const params = [answers.role_id, answers.name];
 
-            console.log('Your employee has been updated.')
-
             db.query(sql, params, function (err,result) {
-                 console.log(result)
+                console.log('Your employee has been updated.')
             })
         })
 }
