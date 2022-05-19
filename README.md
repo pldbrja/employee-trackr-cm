@@ -25,6 +25,7 @@ node index.js
 * MySQL
 * Node.js
 * Inquirer.js
+* Sequelize
 * console.table
 * MySQL2
 * dotenv
